@@ -21,8 +21,9 @@ public class PlayerMotion : MonoBehaviour
 		var rotation = Quaternion.LookRotation (transform.position - mousePosition, Vector3.forward);
 		transform.rotation = rotation;
 		transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
-		var input = Input.GetAxis ("Vertical");
-		rigidbodyComponent.AddForce (transform.up * speed * input);
+		if (Input.GetMouseButton (0)) {
+			rigidbodyComponent.AddForce (transform.up * speed);
+		}
 	}
 
 	void OnTriggerEnter2D (Collider2D other)
