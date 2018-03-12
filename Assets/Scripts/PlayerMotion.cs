@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMotion : MonoBehaviour
 {
 	public float speed;
 	public GameObject explosion;
+	public Game game;
 	private Rigidbody2D rigidbodyComponent;
 
 	void Start ()
@@ -27,6 +29,7 @@ public class PlayerMotion : MonoBehaviour
 	{
 		var contact = (other.transform.position + transform.position) / 2;
 		Instantiate (explosion, contact, Quaternion.identity);
+		game.RestartLevel (2f);
 		Destroy (gameObject);
 	}
 }
