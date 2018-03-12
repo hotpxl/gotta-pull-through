@@ -11,7 +11,9 @@ public class CameraFollow : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		var desired = target.transform.position + offset;
-		transform.position = Vector3.SmoothDamp (transform.position, desired, ref velocity, smoothTime);
+		if (target) {
+			var desired = target.transform.position + offset;
+			transform.position = Vector3.SmoothDamp (transform.position, desired, ref velocity, smoothTime);
+		}
 	}
 }

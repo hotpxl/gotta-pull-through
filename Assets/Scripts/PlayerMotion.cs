@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMotion : MonoBehaviour
 {
 	public float speed;
+	public GameObject explosion;
 	private Rigidbody2D rigidbodyComponent;
 
 	void Start ()
@@ -20,5 +21,12 @@ public class PlayerMotion : MonoBehaviour
 		transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
 		var input = Input.GetAxis ("Vertical");
 		rigidbodyComponent.AddForce (transform.up * speed * input);
+	}
+
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		var contact = (other.transform.position + transform.position) / 2;
+		Instantiate (explosion, contact, Quaternion.identity);
+		Destroy (gameObject);
 	}
 }
