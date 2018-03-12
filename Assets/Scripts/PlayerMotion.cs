@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerMotion : MonoBehaviour
 {
 	public float speed;
-	public GameObject explosion;
-	public Game game;
 	private Rigidbody2D rigidbodyComponent;
 
 	void Start ()
@@ -21,16 +19,9 @@ public class PlayerMotion : MonoBehaviour
 		var rotation = Quaternion.LookRotation (transform.position - mousePosition, Vector3.forward);
 		transform.rotation = rotation;
 		transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
-		if (Input.GetMouseButton (0)) {
-			rigidbodyComponent.AddForce (transform.up * speed);
+		var input = Input.GetAxis ("Vertical");
+		if (input != 0) {
+			rigidbodyComponent.AddForce (transform.up * speed * input);
 		}
-	}
-
-	void OnTriggerEnter2D (Collider2D other)
-	{
-		var contact = (other.transform.position + transform.position) / 2;
-		Instantiate (explosion, contact, Quaternion.identity);
-		game.RestartLevel (2f);
-		Destroy (gameObject);
 	}
 }
