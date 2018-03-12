@@ -11,6 +11,7 @@ public class PlayerMotion : MonoBehaviour
 	void Start ()
 	{
 		rigidbodyComponent = GetComponent<Rigidbody2D> ();
+		rigidbodyComponent.AddForce (new Vector2 (0, 1), ForceMode2D.Impulse);
 	}
 
 	void FixedUpdate ()
