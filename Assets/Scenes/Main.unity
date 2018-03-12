@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   explosion: {fileID: 1709505837936348, guid: 874b307eb22f64b989c858a1944734d0, type: 2}
+  game: {fileID: 984087001}
 --- !u!61 &588425292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -379,6 +380,7 @@ GameObject:
   - component: {fileID: 984086997}
   - component: {fileID: 984086996}
   - component: {fileID: 984087000}
+  - component: {fileID: 984087001}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -463,6 +465,17 @@ MonoBehaviour:
   target: {fileID: 588425285}
   smoothTime: 0.5
   offset: {x: 0, y: 0, z: -10}
+--- !u!114 &984087001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984086995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf09f0074a2543e19bffb093ff6a986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1726381763
 Prefab:
   m_ObjectHideFlags: 0
