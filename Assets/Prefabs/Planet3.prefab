@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4354373460548906}
   - component: {fileID: 212170794658686580}
   m_Layer: 0
-  m_Name: PlanetSprite
+  m_Name: PlanetSprite3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 114343675652638276}
   - component: {fileID: 58385216531689450}
   m_Layer: 0
-  m_Name: Planet
+  m_Name: Planet3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8a29ee38bdcdf465ab30d22f146208d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1acd92dd24e254b23825b70846092bcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
