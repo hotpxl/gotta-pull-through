@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212170794658686580}
   m_Layer: 0
   m_Name: PlanetSprite3
-  m_TagString: Planet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 58385216531689450}
   m_Layer: 0
   m_Name: Planet3
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
