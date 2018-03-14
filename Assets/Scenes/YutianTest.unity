@@ -435,6 +435,9 @@ MonoBehaviour:
   target: {fileID: 588425285}
   smoothTime: 0.5
   offset: {x: 0, y: 0, z: -10}
+  bottomLeft: {x: -10, y: -10}
+  topRight: {x: 10, y: 10}
+  border: 1
 --- !u!114 &984087001
 MonoBehaviour:
   m_ObjectHideFlags: 0
