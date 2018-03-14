@@ -20,6 +20,7 @@ public class PlayerMotion : MonoBehaviour
 		var rotation = Quaternion.LookRotation (transform.position - mousePosition, Vector3.forward);
 		transform.rotation = rotation;
 		transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
+		// TODO(yutian): Keyboard debugging hack.
 		var input = Input.GetAxis ("Vertical");
 		if (input != 0) {
 			rigidbodyComponent.AddForce (transform.up * speed * input);
