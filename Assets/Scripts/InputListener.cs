@@ -5,16 +5,19 @@ using UnityEngine;
 public class InputListener : MonoBehaviour
 {
 	public GameObject[] planets;
+	public GameObject explosion;
 	private static float overlapRadius = 0.5f;
 
 	void Update ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
 			var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			var hits = Physics2D.OverlapPointAll (mousePosition, Physics2D.DefaultRaycastLayers, 0f);
+			mousePosition.z = 0;
+			var hits = Physics2D.OverlapPointAll (mousePosition);
 			foreach (var hit in hits) {
 				if (hit.gameObject.tag == "Planet") {
 					Destroy (hit.transform.parent.gameObject);
+					Instantiate (explosion, mousePosition, Quaternion.identity);
 					return;
 				}
 			}

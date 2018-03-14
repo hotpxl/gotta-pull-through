@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &588425288
 Animator:
@@ -335,7 +335,7 @@ Transform:
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984086995
 GameObject:
@@ -465,6 +465,7 @@ MonoBehaviour:
   - {fileID: 1730160572395882, guid: 922ebfaf9cd8346ccb0b3403c27f69c6, type: 2}
   - {fileID: 1730160572395882, guid: 9b8bb29c3415a43ef81651001ce167c4, type: 2}
   - {fileID: 1730160572395882, guid: e38252d9afeaa47c6b1b989b8f3d4317, type: 2}
+  explosion: {fileID: 1709505837936348, guid: 874b307eb22f64b989c858a1944734d0, type: 2}
 --- !u!1001 &1205366169
 Prefab:
   m_ObjectHideFlags: 0
@@ -667,7 +668,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
       propertyPath: m_LocalScale.x
