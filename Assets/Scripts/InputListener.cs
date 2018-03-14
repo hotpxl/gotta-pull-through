@@ -7,6 +7,8 @@ public class InputListener : MonoBehaviour
 	public GameObject[] planets;
 	public GameObject explosion;
 	private static float overlapRadius = 0.5f;
+	private static float blastRadius = 2.0f;
+	private static float blastImpulse = 2f;
 
 	void Update ()
 	{
@@ -18,6 +20,15 @@ public class InputListener : MonoBehaviour
 				if (hit.gameObject.tag == "Planet") {
 					Destroy (hit.transform.parent.gameObject);
 					Instantiate (explosion, mousePosition, Quaternion.identity);
+					var blasts = Physics2D.OverlapCircleAll (hit.transform.position, blastRadius);
+					foreach (var blast in blasts) {
+						if (blast.gameObject.tag == "Player") {
+							var direction = blast.transform.position - hit.transform.position;
+							direction.Normalize ();
+							blast.GetComponent<Rigidbody2D> ().AddForce (blastImpulse * direction, ForceMode2D.Impulse);
+							break;
+						}
+					}
 					return;
 				}
 			}
