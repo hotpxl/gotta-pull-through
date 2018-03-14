@@ -14,7 +14,7 @@ public class PlanetGravity : MonoBehaviour
 			if (0 < distance) {
 				distance = Mathf.Max (distance, 0.1f);
 				direction.Normalize ();
-				other.GetComponent<Rigidbody2D> ().AddForce (direction / distance / distance);
+				other.GetComponent<Rigidbody2D> ().AddForce (gravityConstant * direction / distance / distance);
 			}
 		}
 	}
