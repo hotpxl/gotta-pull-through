@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
+	public static Game Instance {
+		get;
+		private set;
+	}
+
+	void Awake ()
+	{
+		Instance = this;
+	}
+
 	public void RestartLevel (float delay)
 	{
 		Invoke ("RestartScene", delay);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputListener : MonoBehaviour
 {
 	public GameObject[] planets;
-	private static float overlapRadius = 0.2f;
+	private static float overlapRadius = 0.5f;
 
 	void Update ()
 	{
@@ -14,16 +14,17 @@ public class InputListener : MonoBehaviour
 			var hits = Physics2D.OverlapPointAll (mousePosition, Physics2D.DefaultRaycastLayers, 0f);
 			foreach (var hit in hits) {
 				if (hit.gameObject.tag == "Planet") {
-					// TODO(yutian): Do we want the gravity cloud to also be part of the planet?
-					Destroy (hit.gameObject);
+					Destroy (hit.transform.parent.gameObject);
 					return;
 				}
 			}
-			var existing = Physics2D.OverlapCircle (mousePosition, overlapRadius);
-			if (!existing) {
-				Instantiate (planets [Random.Range (0, planets.Length)], (Vector2)mousePosition, Quaternion.identity);
-				return;
+			hits = Physics2D.OverlapCircleAll (mousePosition, overlapRadius);
+			foreach (var hit in hits) {
+				if (hit.gameObject.tag == "Planet" || hit.gameObject.tag == "Meteroid") {
+					return;
+				}
 			}
+			Instantiate (planets [Random.Range (0, planets.Length)], (Vector2)mousePosition, Quaternion.identity);
 		}
 	}
 }
