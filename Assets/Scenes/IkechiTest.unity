@@ -264,53 +264,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.8}
   m_EdgeRadius: 0
---- !u!1001 &709164267
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.89602315
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.3677019
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028104980573898, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114193491969122968, guid: baf0dd683d1664931ad79ddc169c62d1,
-        type: 2}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 984087001}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: baf0dd683d1664931ad79ddc169c62d1, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &772990837
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +435,9 @@ MonoBehaviour:
   target: {fileID: 588425285}
   smoothTime: 0.5
   offset: {x: 0, y: 0, z: -10}
+  bottomLeft: {x: -10, y: -10}
+  topRight: {x: 10, y: 10}
+  border: 1
 --- !u!114 &984087001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,7 +457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 984086995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10baf41df3c1842e69c3b39915eb839f, type: 3}
+  m_Script: {fileID: 11500000, guid: 235ca4d6bd54649df9846e35c902687d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   planets:
@@ -509,6 +465,7 @@ MonoBehaviour:
   - {fileID: 1730160572395882, guid: 922ebfaf9cd8346ccb0b3403c27f69c6, type: 2}
   - {fileID: 1730160572395882, guid: 9b8bb29c3415a43ef81651001ce167c4, type: 2}
   - {fileID: 1730160572395882, guid: e38252d9afeaa47c6b1b989b8f3d4317, type: 2}
+  explosion: {fileID: 1709505837936348, guid: 874b307eb22f64b989c858a1944734d0, type: 2}
 --- !u!1 &1877306065
 GameObject:
   m_ObjectHideFlags: 0
