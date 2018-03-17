@@ -1,20 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputListener : MonoBehaviour
 {
 	public GameObject[] planets;
 	public GameObject explosion;
+	private bool paused = false;
 	private static float overlapRadius = 0.5f;
 	private static float blastRadius = 2.0f;
 	private static float blastImpulse = 2f;
 
+	public void TogglePause ()
+	{
+		paused = !paused;
+	}
+
 	void Update ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
+			if (EventSystem.current.IsPointerOverGameObject () || paused) {
+				return;
+			}
 			var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			mousePosition.z = 0;
+
 			var hits = Physics2D.OverlapPointAll (mousePosition);
 			foreach (var hit in hits) {
 				if (hit.gameObject.tag == "Planet") {
