@@ -23,7 +23,7 @@ public class Pause : MonoBehaviour
 	{
 		paused = !paused;
 		pauseMenu.SetActive (paused);
-		imageComponent.sprite = paused ? pauseSprite : playSprite;
+		imageComponent.sprite = paused ? playSprite : pauseSprite;
 		Time.timeScale = paused ? 0 : 1;
 		inputListener.TogglePause ();
 	}
