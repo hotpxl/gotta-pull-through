@@ -44,7 +44,8 @@ public class InputListener : MonoBehaviour
 					return;
 				}
 			}
-			Instantiate (planets [Random.Range (0, planets.Length)], (Vector2)mousePosition, Quaternion.identity);
+			var newPlanet = Instantiate (planets [Random.Range (0, planets.Length)], (Vector2)mousePosition, Quaternion.identity);
+			iTween.ScaleFrom (newPlanet, iTween.Hash ("scale", new Vector3 (0.1f, 0.1f, 1f), "time", 0.3f));
 		}
 	}
 }
