@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114560693319457754}
   - component: {fileID: 114370436660748812}
   m_Layer: 0
-  m_Name: EndPoint
+  m_Name: Finish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
