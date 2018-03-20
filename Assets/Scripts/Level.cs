@@ -51,9 +51,14 @@ public class Level : MonoBehaviour
 		playerInteractive = true;
 	}
 
-	public void RestartLevel (float delay)
+	public void PlayerDie ()
 	{
-		Invoke ("RestartScene", delay);
+		Invoke ("RestartScene", 2f);
+	}
+
+	public void PlayerWin ()
+	{
+		// TODO(yutian): Display win screen.
 	}
 
 	void RestartScene ()
