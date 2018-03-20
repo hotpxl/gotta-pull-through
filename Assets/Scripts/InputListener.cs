@@ -23,7 +23,7 @@ public class InputListener : MonoBehaviour
 	void Update ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			if (EventSystem.current.IsPointerOverGameObject () || !GlobalGame.Get ().currentLevel.IsPlayable ()) {
+			if (EventSystem.current.IsPointerOverGameObject () || EventSystem.current.IsPointerOverGameObject (0) || !GlobalGame.Get ().currentLevel.IsPlayable ()) {
 				return;
 			}
 			var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
