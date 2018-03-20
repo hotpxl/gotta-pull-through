@@ -5,25 +5,26 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-	private bool paused = false;
 	private Image imageComponent;
 
 	public Sprite pauseSprite;
 	public Sprite playSprite;
 	public GameObject pauseMenu;
-	
+
 	void Start ()
 	{
 		imageComponent = GetComponent<Image> ();
 		imageComponent.sprite = pauseSprite;
+		GlobalGame.Get ().currentLevel.paused = false;
+		
 	}
 
 	public void TogglePause ()
 	{
-		paused = !paused;
-		pauseMenu.SetActive (paused);
-		imageComponent.sprite = paused ? playSprite : pauseSprite;
-		Time.timeScale = paused ? 0 : 1;
-		GlobalGame.Get ().SetPause (paused);
+		var level = GlobalGame.Get ().currentLevel;
+		level.paused = !level.paused;
+		pauseMenu.SetActive (level.paused);
+		imageComponent.sprite = level.paused ? playSprite : pauseSprite;
+		Time.timeScale = level.paused ? 0 : 1;
 	}
 }

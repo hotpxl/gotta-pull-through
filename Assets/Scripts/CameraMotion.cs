@@ -15,7 +15,7 @@ public class CameraMotion : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (GlobalGame.Get ().IsPlayable () && player != null) {
+		if (GlobalGame.Get ().currentLevel.IsPlayable () && player != null) {
 			var desired = player.transform.position + offset;
 			var halfHeight = GetComponent<Camera> ().orthographicSize;
 			var halfWidth = halfHeight / Screen.height * Screen.width;

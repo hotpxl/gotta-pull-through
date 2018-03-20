@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 public class Level : MonoBehaviour
 {
 	public GameObject player;
+	public float timeSpent = 0f;
+	public bool paused = false;
+
+	bool playerInteractive = false;
+
+	public bool IsPlayable ()
+	{
+		return !paused && playerInteractive;
+	}
 
 	void Awake ()
 	{
@@ -14,7 +23,6 @@ public class Level : MonoBehaviour
 
 	void Start ()
 	{
-		GlobalGame.Get ().SetInteractive (false);
 		var camera = Camera.main.gameObject;
 		iTween.ValueTo (camera, iTween.Hash ("from", 15f, "to", 5f, "time", 3f, "onupdate", "CameraZoom", "easetype", "easeInQuad", "delay", 1f));
 		iTween.MoveTo (camera, iTween.Hash ("y", -5f, "easeType", "easeInQuad", "time", 3f, "delay", 1f));
@@ -29,7 +37,7 @@ public class Level : MonoBehaviour
 	void LaunchPlayer ()
 	{
 		player.GetComponent<PlayerMotion> ().Launch ();
-		GlobalGame.Get ().SetInteractive (true);
+		playerInteractive = true;
 	}
 
 	public void RestartLevel (float delay)

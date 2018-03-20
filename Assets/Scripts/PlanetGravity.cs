@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlanetGravity : MonoBehaviour
 {
-	public float gravityConstant;
+	public float gravityConstant = 1.0f;
 
 	void OnTriggerStay2D (Collider2D other)
 	{
