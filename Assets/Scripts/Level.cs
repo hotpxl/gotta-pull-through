@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-	public GameObject player;
 	public float timeSpent = 0f;
 
 	bool paused = false;
 	bool playerInteractive = false;
+	GameObject player;
+	GameObject winMenu;
 
 	public bool GetPause ()
 	{
@@ -34,6 +35,8 @@ public class Level : MonoBehaviour
 
 	void Start ()
 	{
+		player = GameObject.Find ("Player");
+		winMenu = GameObject.Find ("Win Menu");
 		var camera = Camera.main.gameObject;
 		iTween.ValueTo (camera, iTween.Hash ("from", 15f, "to", 5f, "time", 3f, "onupdate", "CameraZoom", "easetype", "easeInQuad", "delay", 1f));
 		iTween.MoveTo (camera, iTween.Hash ("y", -5f, "easeType", "easeInQuad", "time", 3f, "delay", 1f));
@@ -58,7 +61,9 @@ public class Level : MonoBehaviour
 
 	public void PlayerWin ()
 	{
-		// TODO(yutian): Display win screen.
+		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		playerInteractive = false;
+		winMenu.SetActive (true);
 	}
 
 	void RestartScene ()

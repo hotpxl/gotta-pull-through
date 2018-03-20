@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-	public GameObject pauseMenu;
+	GameObject pauseMenu;
 
 	void Start ()
 	{
+		pauseMenu = GameObject.Find ("Pause Menu");
 		GlobalGame.Get ().currentLevel.SetPause (false);
 	}
 

@@ -8,7 +8,6 @@ public class PlayerMotion : MonoBehaviour
 	public float speed;
 
 	Rigidbody2D rigidbodyComponent;
-	bool started = false;
 
 	void Start ()
 	{
@@ -17,15 +16,13 @@ public class PlayerMotion : MonoBehaviour
 
 	public void Launch ()
 	{
-		// TODO(yutian): Play animation.
 		rigidbodyComponent.AddForce (new Vector2 (0, 1), ForceMode2D.Impulse);
-		started = true;
 	}
 
 	void FixedUpdate ()
 	{
-		if (started) {
-			var velocity = rigidbodyComponent.velocity;
+		var velocity = rigidbodyComponent.velocity;
+		if (0 < velocity.magnitude) {
 			// 90 degrees to offset the rotation of the sprite itself.
 			transform.rotation = Quaternion.AngleAxis (Mathf.Atan2 (velocity.y, velocity.x) * Mathf.Rad2Deg - 90, Vector3.forward);
 		}

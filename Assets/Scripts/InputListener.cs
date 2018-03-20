@@ -5,12 +5,20 @@ using UnityEngine.EventSystems;
 
 public class InputListener : MonoBehaviour
 {
-	public GameObject[] planets;
-	public GameObject explosion;
-	private static float overlapRadius = 0.5f;
-	private static float blastRadius = 2.0f;
-	private static float blastImpulse = 2f;
+	static float overlapRadius = 0.5f;
+	static float blastRadius = 2.0f;
+	static float blastImpulse = 2f;
+	static int planetCount = 4;
+	GameObject explosion;
+	GameObject[] planets = new GameObject[planetCount];
 
+	void Start ()
+	{
+		explosion = Resources.Load<GameObject> ("Explosion");
+		for (int i = 0; i < planetCount; ++i) {
+			planets [i] = Resources.Load<GameObject> ("Planet" + (i + 1));
+		}
+	}
 
 	void Update ()
 	{

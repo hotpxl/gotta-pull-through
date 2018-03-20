@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class CameraMotion : MonoBehaviour
 {
-	public GameObject player;
 	public float smoothTime;
-	public Vector3 offset;
 	public Vector2 bottomLeft;
 	public Vector2 topRight;
 	public float border;
 
+	static Vector3 offset = new Vector3 (0, 0, -10);
+	GameObject player;
+
 	Vector3 velocity = Vector3.zero;
+
+	void Start ()
+	{
+		player = GameObject.Find ("Player");
+	}
 
 	void FixedUpdate ()
 	{

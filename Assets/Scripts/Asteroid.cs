@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-	public GameObject explosion;
+	GameObject explosion;
+
+	void Start ()
+	{
+		explosion = Resources.Load<GameObject> ("Explosion");
+	}
 
 	void OnTriggerEnter2D (Collider2D other)
 	{

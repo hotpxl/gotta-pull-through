@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PointToFinish : MonoBehaviour
 {
-	public GameObject target;
 	public float distance = 1f;
+
+	GameObject target;
+
+	void Start ()
+	{
+		target = GameObject.Find ("Finish");
+	}
 
 	void Update ()
 	{

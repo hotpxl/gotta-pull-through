@@ -398,7 +398,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -439540831
+  randomSeed: 2124392319
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4211,7 +4211,9 @@ Prefab:
       propertyPath: m_Name
       value: Earth
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114258729769860448, guid: 26c4f90056d2443639361b9ce68fab25, type: 2}
+    - {fileID: 58521153802388532, guid: 26c4f90056d2443639361b9ce68fab25, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 26c4f90056d2443639361b9ce68fab25, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1611181079
