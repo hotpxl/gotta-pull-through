@@ -6,24 +6,33 @@ using UnityEngine.SceneManagement;
 public class PlayerMotion : MonoBehaviour
 {
 	public float speed;
-	private Rigidbody2D rigidbodyComponent;
+
+	Rigidbody2D rigidbodyComponent;
+	bool started = false;
 
 	void Start ()
 	{
 		rigidbodyComponent = GetComponent<Rigidbody2D> ();
+	}
+
+	public void Launch ()
+	{
+		// TODO(yutian): Play animation.
 		rigidbodyComponent.AddForce (new Vector2 (0, 1), ForceMode2D.Impulse);
+		started = true;
 	}
 
 	void FixedUpdate ()
 	{
-		var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		var rotation = Quaternion.LookRotation (transform.position - mousePosition, Vector3.forward);
-		transform.rotation = rotation;
-		transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
-		// TODO(yutian): Keyboard debugging hack.
-		var input = Input.GetAxis ("Vertical");
-		if (input != 0) {
-			rigidbodyComponent.AddForce (transform.up * speed * input);
+		if (started) {
+			var velocity = rigidbodyComponent.velocity;
+			// 90 degrees to offset the rotation of the sprite itself.
+			transform.rotation = Quaternion.AngleAxis (Mathf.Atan2 (velocity.y, velocity.x) * Mathf.Rad2Deg - 90, Vector3.forward);
+			// TODO(yutian): Keyboard debugging hack.
+			var input = Input.GetAxis ("Vertical");
+			if (input != 0) {
+				rigidbodyComponent.AddForce (transform.up * speed * input);
+			}
 		}
 	}
 }
