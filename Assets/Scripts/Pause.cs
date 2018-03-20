@@ -15,16 +15,15 @@ public class Pause : MonoBehaviour
 	{
 		imageComponent = GetComponent<Image> ();
 		imageComponent.sprite = pauseSprite;
-		GlobalGame.Get ().currentLevel.paused = false;
+		GlobalGame.Get ().currentLevel.SetPause (false);
 		
 	}
 
 	public void TogglePause ()
 	{
-		var level = GlobalGame.Get ().currentLevel;
-		level.paused = !level.paused;
-		pauseMenu.SetActive (level.paused);
-		imageComponent.sprite = level.paused ? playSprite : pauseSprite;
-		Time.timeScale = level.paused ? 0 : 1;
+		var paused = !GlobalGame.Get ().currentLevel.GetPause ();
+		GlobalGame.Get ().currentLevel.SetPause (paused);
+		pauseMenu.SetActive (paused);
+		imageComponent.sprite = paused ? playSprite : pauseSprite;
 	}
 }

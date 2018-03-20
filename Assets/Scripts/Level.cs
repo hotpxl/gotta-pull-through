@@ -7,9 +7,20 @@ public class Level : MonoBehaviour
 {
 	public GameObject player;
 	public float timeSpent = 0f;
-	public bool paused = false;
 
+	bool paused = false;
 	bool playerInteractive = false;
+
+	public bool GetPause ()
+	{
+		return paused;
+	}
+
+	public void SetPause (bool p)
+	{
+		paused = p;
+		Time.timeScale = paused ? 0 : 1;
+	}
 
 	public bool IsPlayable ()
 	{
