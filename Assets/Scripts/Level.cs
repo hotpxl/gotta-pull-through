@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class Level : MonoBehaviour
 	{
 		player = GameObject.Find ("Player");
 		winMenu = GameObject.Find ("Canvas").transform.Find ("Win Menu").gameObject;
+		SetDeathAndLevelPanel ();
 		var camera = Camera.main.gameObject;
 		iTween.ValueTo (camera, iTween.Hash ("from", 15f, "to", 5f, "time", 3f, "onupdate", "CameraZoom", "easetype", "easeInQuad", "delay", 1f));
 		iTween.MoveTo (camera, iTween.Hash ("y", -5f, "easeType", "easeInQuad", "time", 3f, "delay", 1f));
@@ -64,10 +66,26 @@ public class Level : MonoBehaviour
 		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		playerInteractive = false;
 		winMenu.SetActive (true);
+		if (GlobalGame.Get ().levelIndex == GlobalGame.levels.Length - 1) {
+			// No next level for last level.
+			GameObject.Find ("Continue Button").SetActive (false);
+		}
+	}
+
+	public void LoadNextLevel ()
+	{
+		SceneManager.LoadScene (GlobalGame.levels [++GlobalGame.Get ().levelIndex]);
 	}
 
 	void RestartScene ()
 	{
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+		++GlobalGame.Get ().totalDeath;
+		SceneManager.LoadScene (GlobalGame.levels [GlobalGame.Get ().levelIndex]);
+	}
+
+	void SetDeathAndLevelPanel ()
+	{
+		GameObject.Find ("Death Value").GetComponent<Text> ().text = GlobalGame.Get ().totalDeath.ToString ();
+		GameObject.Find ("Level Value").GetComponent<Text> ().text = (GlobalGame.Get ().levelIndex + 1).ToString ();
 	}
 }

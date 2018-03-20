@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoScene.unity
     guid: 8d97f46b20270455b974205177b82587
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: e2e07c2479be846878b4021e10d88bd0
+  - enabled: 1
+    path: Assets/Scenes/YutianTest.unity
+    guid: 99e854c99bffb4474b9ade664cfc1679
