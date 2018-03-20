@@ -2710,9 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b84e3d22424a43288b6d84c43db5de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1526451648}
-  smoothTime: 0.5
-  offset: {x: 0, y: 0, z: -10}
+  smoothTime: 0.2
   bottomLeft: {x: -10, y: -10}
   topRight: {x: 10, y: 10}
   border: 1
@@ -2727,9 +2725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf09f0074a2543e19bffb093ff6a986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1526451648}
   timeSpent: 0
-  winScreen: {fileID: 471437128}
 --- !u!114 &984087002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2741,12 +2737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235ca4d6bd54649df9846e35c902687d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planets:
-  - {fileID: 1730160572395882, guid: 36d93e681380f47a8915201d01fa4cc4, type: 2}
-  - {fileID: 1730160572395882, guid: 922ebfaf9cd8346ccb0b3403c27f69c6, type: 2}
-  - {fileID: 1730160572395882, guid: 9b8bb29c3415a43ef81651001ce167c4, type: 2}
-  - {fileID: 1730160572395882, guid: e38252d9afeaa47c6b1b989b8f3d4317, type: 2}
-  explosion: {fileID: 1709505837936348, guid: 874b307eb22f64b989c858a1944734d0, type: 2}
 --- !u!4 &1037867755 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4915099173537982, guid: 3671ba8e329d94e7e819720d0a9cef07,
@@ -3403,7 +3393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3762aec6a40634296bb86b0dcebef05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 798240745}
 --- !u!4 &1410874367 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4915099173537982, guid: 3671ba8e329d94e7e819720d0a9cef07,
@@ -3762,11 +3751,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e0ddb4528afd4165a73c2bde544afb4, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1526451648 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1370356061368062, guid: 8e0ddb4528afd4165a73c2bde544afb4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1526451647}
 --- !u!4 &1605953169 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4915099173537982, guid: 3671ba8e329d94e7e819720d0a9cef07,
