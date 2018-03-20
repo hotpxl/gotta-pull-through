@@ -12,6 +12,7 @@ public class Level : MonoBehaviour
 	bool playerInteractive = false;
 	GameObject player;
 	GameObject winMenu;
+	GameObject continueButton;
 
 	public bool GetPause ()
 	{
@@ -38,6 +39,7 @@ public class Level : MonoBehaviour
 	{
 		player = GameObject.Find ("Player");
 		winMenu = GameObject.Find ("Canvas").transform.Find ("Win Menu").gameObject;
+		continueButton = winMenu.transform.Find ("Continue Button").gameObject;
 		SetDeathAndLevelPanel ();
 		var camera = Camera.main.gameObject;
 		iTween.ValueTo (camera, iTween.Hash ("from", 15f, "to", 5f, "time", 3f, "onupdate", "CameraZoom", "easetype", "easeInQuad", "delay", 1f));
@@ -58,7 +60,7 @@ public class Level : MonoBehaviour
 
 	public void PlayerDie ()
 	{
-		Invoke ("RestartScene", 2f);
+		Invoke ("RestartLevel", 2f);
 	}
 
 	public void PlayerWin ()
@@ -66,10 +68,8 @@ public class Level : MonoBehaviour
 		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		playerInteractive = false;
 		winMenu.SetActive (true);
-		if (GlobalGame.Get ().levelIndex == GlobalGame.levels.Length - 1) {
-			// No next level for last level.
-			GameObject.Find ("Continue Button").SetActive (false);
-		}
+		// No next level for last level.
+		continueButton.SetActive (GlobalGame.Get ().levelIndex != GlobalGame.levels.Length - 1);
 	}
 
 	public void LoadNextLevel ()
@@ -77,7 +77,7 @@ public class Level : MonoBehaviour
 		SceneManager.LoadScene (GlobalGame.levels [++GlobalGame.Get ().levelIndex]);
 	}
 
-	void RestartScene ()
+	public void RestartLevel ()
 	{
 		++GlobalGame.Get ().totalDeath;
 		SceneManager.LoadScene (GlobalGame.levels [GlobalGame.Get ().levelIndex]);
