@@ -28,11 +28,6 @@ public class PlayerMotion : MonoBehaviour
 			var velocity = rigidbodyComponent.velocity;
 			// 90 degrees to offset the rotation of the sprite itself.
 			transform.rotation = Quaternion.AngleAxis (Mathf.Atan2 (velocity.y, velocity.x) * Mathf.Rad2Deg - 90, Vector3.forward);
-			// TODO(yutian): Keyboard debugging hack.
-			var input = Input.GetAxis ("Vertical");
-			if (input != 0) {
-				rigidbodyComponent.AddForce (transform.up * speed * input);
-			}
 		}
 	}
 }

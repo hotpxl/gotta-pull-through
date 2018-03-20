@@ -14,6 +14,6 @@ public class PointToFinish : MonoBehaviour
 		direction *= distance;
 		transform.position = transform.parent.position + direction;
 		// 90 degrees to offset the rotation of the sprite itself.
-		transform.rotation = Quaternion.AngleAxis (-Vector3.Angle (Vector3.up, direction) + 90, Vector3.forward);
+		transform.rotation = Quaternion.AngleAxis (Vector3.SignedAngle (Vector3.up, direction, Vector3.forward) + 90, Vector3.forward);
 	}
 }
