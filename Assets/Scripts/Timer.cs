@@ -11,11 +11,14 @@ public class Timer : MonoBehaviour
 	void Start ()
 	{
 		textComponent = GetComponent<Text> ();
+		textComponent.text = "0";
 	}
 
 	void Update ()
 	{
-		currentTime += Time.deltaTime;
-		textComponent.text = Mathf.RoundToInt (currentTime).ToString ();
+		if (GlobalGame.Get ().IsPlayable ()) {
+			currentTime += Time.deltaTime;
+			textComponent.text = Mathf.RoundToInt (currentTime).ToString ();
+		}
 	}
 }

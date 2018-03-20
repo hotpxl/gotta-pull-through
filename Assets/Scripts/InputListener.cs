@@ -7,20 +7,15 @@ public class InputListener : MonoBehaviour
 {
 	public GameObject[] planets;
 	public GameObject explosion;
-	private bool paused = false;
 	private static float overlapRadius = 0.5f;
 	private static float blastRadius = 2.0f;
 	private static float blastImpulse = 2f;
 
-	public void TogglePause ()
-	{
-		paused = !paused;
-	}
 
 	void Update ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			if (EventSystem.current.IsPointerOverGameObject () || paused) {
+			if (EventSystem.current.IsPointerOverGameObject () || !GlobalGame.Get ().IsPlayable ()) {
 				return;
 			}
 			var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);

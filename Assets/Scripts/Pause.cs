@@ -11,8 +11,7 @@ public class Pause : MonoBehaviour
 	public Sprite pauseSprite;
 	public Sprite playSprite;
 	public GameObject pauseMenu;
-	public InputListener inputListener;
-
+	
 	void Start ()
 	{
 		imageComponent = GetComponent<Image> ();
@@ -25,6 +24,6 @@ public class Pause : MonoBehaviour
 		pauseMenu.SetActive (paused);
 		imageComponent.sprite = paused ? playSprite : pauseSprite;
 		Time.timeScale = paused ? 0 : 1;
-		inputListener.TogglePause ();
+		GlobalGame.Get ().SetPause (paused);
 	}
 }
