@@ -66,6 +66,8 @@ public class Level : MonoBehaviour
 	public void PlayerWin ()
 	{
 		player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		// Fix the position of the player on finish.
+		player.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
 		playerInteractive = false;
 		winMenu.SetActive (true);
 		// No next level for last level.
