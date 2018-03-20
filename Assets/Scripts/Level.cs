@@ -12,6 +12,7 @@ public class Level : MonoBehaviour
 	bool playerInteractive = false;
 	GameObject player;
 	GameObject winMenu;
+	GameObject pauseButton;
 	GameObject continueButton;
 
 	public bool GetPause ()
@@ -39,9 +40,11 @@ public class Level : MonoBehaviour
 	{
 		player = GameObject.Find ("Player");
 		winMenu = GameObject.Find ("Canvas").transform.Find ("Win Menu").gameObject;
+		pauseButton = GameObject.Find ("Canvas").transform.Find ("Pause Button").gameObject;
 		continueButton = winMenu.transform.Find ("Continue Button").gameObject;
+		SetPause (false);
 		SetDeathAndLevelPanel ();
-		var camera = Camera.main.gameObject;
+		var camera = gameObject;
 		iTween.ValueTo (camera, iTween.Hash ("from", 15f, "to", 5f, "time", 3f, "onupdate", "CameraZoom", "easetype", "easeInQuad", "delay", 1f));
 		iTween.MoveTo (camera, iTween.Hash ("y", -5f, "easeType", "easeInQuad", "time", 3f, "delay", 1f));
 		iTween.ShakePosition (camera, iTween.Hash ("amount", new Vector3 (0.1f, 0.1f, 0f), "delay", 4f, "time", 1.5f, "oncomplete", "LaunchPlayer"));
@@ -56,6 +59,7 @@ public class Level : MonoBehaviour
 	{
 		player.GetComponent<PlayerMotion> ().Launch ();
 		playerInteractive = true;
+		pauseButton.SetActive (true);
 	}
 
 	public void PlayerDie ()
@@ -69,6 +73,7 @@ public class Level : MonoBehaviour
 		// Fix the position of the player on finish.
 		player.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
 		playerInteractive = false;
+		pauseButton.SetActive (false);
 		winMenu.SetActive (true);
 		// No next level for last level.
 		continueButton.SetActive (GlobalGame.Get ().levelIndex != GlobalGame.levels.Length - 1);
