@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-	private Text textComponent;
-	private float currentTime = 0f;
+	Text textComponent;
 
 	void Start ()
 	{
 		textComponent = GetComponent<Text> ();
+		textComponent.text = "0";
 	}
 
 	void Update ()
 	{
-		currentTime += Time.deltaTime;
-		textComponent.text = Mathf.RoundToInt (currentTime).ToString ();
+		var level = GlobalGame.Get ().currentLevel;
+		if (level.IsPlayable ()) {
+			level.timeSpent += Time.deltaTime;
+			textComponent.text = Mathf.RoundToInt (level.timeSpent).ToString ();
+		}
 	}
 }

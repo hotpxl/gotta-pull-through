@@ -11,7 +11,7 @@ public class Asteroid : MonoBehaviour
 		if (other.gameObject.tag == "Player") {
 			var contact = other.bounds.ClosestPoint (transform.position);
 			Instantiate (explosion, contact, Quaternion.identity);
-			Game.Instance.RestartLevel (2f);
+			GlobalGame.Get ().currentLevel.PlayerDie ();
 			Destroy (other.gameObject);
 		}
 	}
