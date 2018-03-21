@@ -14,6 +14,7 @@ public class Level : MonoBehaviour
 	GameObject winMenu;
 	GameObject pauseButton;
 	GameObject continueButton;
+	AudioClip rocketStart;
 
 	public bool GetPause ()
 	{
@@ -42,11 +43,14 @@ public class Level : MonoBehaviour
 		winMenu = GameObject.Find ("Canvas").transform.Find ("Win Menu").gameObject;
 		pauseButton = GameObject.Find ("Canvas").transform.Find ("Pause Button").gameObject;
 		continueButton = winMenu.transform.Find ("Continue Button").gameObject;
+		rocketStart = Resources.Load<AudioClip> ("Sounds/rocket_launch");
 		SetPause (false);
 		SetDeathAndLevelPanel ();
 		var camera = gameObject;
-		iTween.ValueTo (camera, iTween.Hash ("from", 15f, "to", 5f, "time", 3f, "onupdate", "CameraZoom", "easetype", "easeInQuad", "delay", 1f));
-		iTween.MoveTo (camera, iTween.Hash ("y", -5f, "easeType", "easeInQuad", "time", 3f, "delay", 1f));
+		float zoomPos = player.transform.position.y + 3.26f;
+		float zoomVal = camera.GetComponent<Camera> ().orthographicSize;
+		iTween.ValueTo (camera, iTween.Hash ("from", zoomVal, "to", 6f, "time", 3f, "onupdate", "CameraZoom", "easetype", "easeInQuad", "delay", 1f));
+		iTween.MoveTo (camera, iTween.Hash ("y", zoomPos, "easeType", "easeInQuad", "time", 3f, "delay", 1f, "oncomplete", "PlayRocketLaunch"));
 		iTween.ShakePosition (camera, iTween.Hash ("amount", new Vector3 (0.1f, 0.1f, 0f), "delay", 4f, "time", 1.5f, "oncomplete", "LaunchPlayer"));
 	}
 
@@ -94,5 +98,9 @@ public class Level : MonoBehaviour
 	{
 		GameObject.Find ("Death Value").GetComponent<Text> ().text = GlobalGame.Get ().totalDeath.ToString ();
 		GameObject.Find ("Level Value").GetComponent<Text> ().text = (GlobalGame.Get ().levelIndex + 1).ToString ();
+	}
+
+	void PlayRocketLaunch() {
+		player.GetComponent<AudioSource>().PlayOneShot(rocketStart);
 	}
 }

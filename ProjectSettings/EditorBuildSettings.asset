@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/YutianTest.unity
     guid: 99e854c99bffb4474b9ade664cfc1679
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 8b38b2189e0a34cee9082f161796fb4a

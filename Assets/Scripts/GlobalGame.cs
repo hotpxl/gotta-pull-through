@@ -6,7 +6,7 @@ public class GlobalGame
 
 	public static readonly string[] levels = {
 		"YutianTest",
-		"YutianTest",
+		"Level2",
 		"YutianTest"
 	};
 	public Level currentLevel;
