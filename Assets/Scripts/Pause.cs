@@ -9,7 +9,7 @@ public class Pause : MonoBehaviour
 
 	void Start ()
 	{
-		pauseMenu = GameObject.Find ("Canvas").transform.Find ("Pause Menu").gameObject;
+		pauseMenu = GameObject.Find ("Menus").transform.Find ("Pause Menu").gameObject;
 		GlobalGame.Get ().currentLevel.SetPause (false);
 	}
 

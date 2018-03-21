@@ -5,9 +5,9 @@ public class GlobalGame
 	static readonly GlobalGame instance = new GlobalGame ();
 
 	public static readonly string[] levels = {
-		"YutianTest",
+		"Level1",
 		"Level2",
-		"YutianTest"
+		"Level3"
 	};
 	public Level currentLevel;
 	public int totalDeath = 0;
